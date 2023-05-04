@@ -8,11 +8,11 @@ public class InstantCreditCheck {
     static int reqCreditScore = 700;
 
     public static void main(String args[]) {
-        
+
         double salary = getSalary();
         int creditScore = getCreditScore();
         boolean qualified = isUserQualified(creditScore, salary);
-        notifyUser(qualified););
+        notifyUser(qualified);
         scanner.close();
     }
 
@@ -31,6 +31,7 @@ public class InstantCreditCheck {
     public static boolean isUserQualified(int creditScore, double salary) {
         if (creditScore >= reqCreditScore && salary >= reqSalary)
             return true;
+        return false;
     }
 
     public static void notifyUser(boolean qualified) {
