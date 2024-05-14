@@ -4,11 +4,13 @@ public class HomeAreaCalculator {
     public static void main(String args[]) {
 
         // Rectangle 1 - create an instance of Rectangle class
+        // Instantiated with the Empty constructor and using setters
         Rectangle room1 = new Rectangle();
         room1.setWidth(25);
         room1.setLength(50);
         double areaOfRoom1 = room1.calculateArea();
 
+        // Instantiated using constructor with params
         Rectangle room2 = new Rectangle(30, 75);
         double areaOfRoom2 = room2.calculateArea();
 
