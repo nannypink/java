@@ -5,10 +5,10 @@ public class PhoneBill {
     private double planFee;
     private double allottedMins;
     private double usedMins;
-    private double overageMins;
 
+// overloaded constructors
     public PhoneBill(){
-        this.id = 1;
+        this.id = 0;
         this.planFee = 100.00;
         this.allottedMins = 30;
         this.usedMins = 40;
@@ -58,33 +58,29 @@ public class PhoneBill {
     public void setUsedMins(double usedMins) {
         this.usedMins = usedMins;
     }
-
-    public double getOverageMins() {
-        return overageMins;
-    }
-
-    public void setOverageMins(double overageMins) {
-        this.overageMins = overageMins;
-    }
-
-    public static double calculateOverageFee(double overageMins){
+    public double calculateOverageFee(){
+        if(usedMins <= allottedMins){
+            return 0;
+        }
+        double overageMins = usedMins - allottedMins;
         return overageMins * 0.25;
     }
 
-    public static double calculateTax(double planFee, double overageFee){
-        return (planFee + overageFee) * 0.15;
+    public double calculateTax(){
+
+        return (planFee + calculateOverageFee()) * 0.15;
     }
 
-    public static double calculateTotal(double planFee, double overageFee, double tax ){
-        return planFee + overageFee + tax;
+    public double calculateTotal(){
+        return planFee + calculateOverageFee() + calculateTax();
     }
 
-    public static void printFinalBill(){
+    public void printFinalBill(){
         System.out.println("Your total bill is:");
         System.out.println("Plan Fee: $" + planFee);
-        System.out.println("Overage Fee: $" + overageFee);
-        System.out.println("Tax: $" + tax);
-        System.out.println("Total payable: $" + total);
+        System.out.println("Overage Fee: $" + calculateOverageFee());
+        System.out.println("Tax: $" + calculateTax());
+        System.out.println("Total payable: $" + calculateTotal());
     }
 
 }
