@@ -12,6 +12,7 @@ public class TasteTester {
         birthday.setCandles(10);
         birthday.setPrice(20.00);
         System.out.println("Cake flavour: " + birthday.getFlavour());
+        System.out.println("No of candles: " + birthday.getCandles());
         System.out.println("Cake price: " + birthday.getPrice());
 
         WeddingCake wedding = new WeddingCake();
@@ -19,6 +20,7 @@ public class TasteTester {
         wedding.setTiers(4);
         wedding.setPrice(100.00);
         System.out.println("Cake flavour: " + wedding.getFlavour());
+        System.out.println("No of tiers: " + wedding.getTiers());
         System.out.println("Cake price: " + wedding.getPrice());
     }
 
